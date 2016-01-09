@@ -24,7 +24,7 @@ Ruuvikeitin siirtää rakaa-ainetta 200 kiloa sekunissa, katso jos hoj1 Timer.ja
 #### Vesa
 
 
-Asiakkaan toteutus on kansiossa client.    
+    
 Toteuta ClientInter.java tiedostoon Client.java.
 
 
@@ -32,13 +32,14 @@ Toteuta ClientInter.java tiedostoon Client.java.
 Panimo interface public
 ```
 // true jos onnistui
-boolean startLoader(Client c);
-boolean reserveSilo(Client c, int num);
-boolean startSiloPump(Client c, int num);
-boolean startProcessor(Client c, int num);
-boolean startPump(Client c, int num);
-boolean reserverTank(Client c, int num);
-boolean startBottlePump(Client c, int num);
+boolean loaderStart(Client c);
+boolean siloReserve(Client c, int num);
+boolean siloPumpStart(Client c, int num);
+boolean processorReserve(Client c, int num);
+boolean processorStart(Client c, int num);
+boolean pumpStart(Client c, int num);
+boolean tankReserve(Client c, int num);
+boolean bottlePumpStart(Client c, int num);
 
 
 boolean inUseLoader();

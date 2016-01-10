@@ -30,6 +30,8 @@ public boolean isReserved() {
 public boolean connect(boolean t) {
 	if(inUse)
 		return false;
+	fill = t;
+	return true;
 	
 }
 

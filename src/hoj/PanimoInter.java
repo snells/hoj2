@@ -60,14 +60,7 @@ public interface PanimoInter extends Remote {
 	// jos ei varattu tankki niin false
 	boolean startBottlePump(Client c, int num);
 	
-	// clientti kyselee panimon tilaa
-	boolean inUseLoader();
-	boolean inUseSilo(int n);
-	boolean inUseSiloPump(int n);
-	boolean inUseProcessor(int n);
-	boolean inUsePump(int n);
-	boolean inUseTank(int n);
-	boolean inUseBottlePump(int n);
+	
 
 }
 

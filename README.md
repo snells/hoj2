@@ -1,34 +1,5 @@
 # hoj2
 
-
-
-###Tehtävän jako
-   
-Topi toteuttaa palvelimen.   
-Vesa toteuttaa Asiakkaan.   
-Sakari tekee rajapinnat, viimeistelee ja lähettää.   
-
-
-
-
-####Topi
-
-
-
-Toteuta PanimoInter.java oleva interface Tiedostoon Panimo.java ja vaadittavat luokat.   
-
-Ruuvikeitin siirtää rakaa-ainetta 200 kiloa sekunissa, katso jos hoj1 Timer.java:sta apua
-
-
-
-#### Vesa
-
-
-    
-Toteuta ClientInter.java tiedostoon Client.java.
-
-
-
 Panimo interface public
 ```
 // true jos onnistui
@@ -42,20 +13,16 @@ boolean tankReserve(Client c, int num);
 boolean bottlePumpStart(Client c, int num);
 
 
-boolean inUseLoader();
-boolean inUseSilo(int n);
-boolean inUseSiloPump(int n);
-boolean inUseProcessor(int n);
-boolean inUsePump(int n);
-boolean inUseTank(int n);
-boolean inUseBottlePump(int n);
-
 ```
 
 Client interface public
 
 ```
-
-void print(String text);
+void updateSilo(ContainerData d, int num);
+void updateLoader();
+void updateSiloPump(int num);
+void updateProcessor(ContainerData d, int num);
+void updateTank(ContainerData d, int num);
+voidUpdateBottlePump(int num); 
 
 ```

@@ -8,6 +8,7 @@ public abstract class TransferPump<T extends Container> extends Thread {
 	protected boolean startFlag;
 	protected String user;
 	
+	
 	private boolean transfer(int count) {
 		long c = Math.min(count, contIn.getStuff());
 		c = Math.min(c, contOut.roomLeft());
@@ -18,6 +19,9 @@ public abstract class TransferPump<T extends Container> extends Thread {
 			contOut.transfer(c);
 			return true;
 		}
+	}
+	public boolean isFree() {
+		return !inUse;
 	}
 	
 	public synchronized boolean prepare(String name, T in, T out) {
@@ -49,6 +53,8 @@ public abstract class TransferPump<T extends Container> extends Thread {
 		}
 		inUse = false;
 		contIn.stopTransfer();
+		if(contIn.getStuff() == 0)
+			contIn.free();
 		contOut.stopTransfer();
 	}
 	

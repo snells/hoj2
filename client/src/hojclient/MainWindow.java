@@ -5,6 +5,8 @@
  */
 package hojclient;
 
+//import hoj.Container;
+
 /**
  *
  * @author jaanle
@@ -1098,7 +1100,8 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startProcLoad2ActionPerformed
 
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
-        // TODO Mitä tehdään kun siilo1 varataan?
+    	silo1Status.setText(Long.toString(c.getStuff()));
+    	update();
     }//GEN-LAST:event_reserveSilo1ActionPerformed
 
     private void reserveSilo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo2ActionPerformed
@@ -1235,7 +1238,12 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    
+    Container c = new Container(1, "s", 100);
+    void update() {
+    	c.transfer(100);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ProcLoadConvStatus1;
     private javax.swing.JLabel bpump1Label;

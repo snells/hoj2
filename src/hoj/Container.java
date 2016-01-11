@@ -27,6 +27,8 @@ public boolean isReserved() {
 	return reserved;
 }
 
+
+// true fill, false give
 public boolean connect(boolean t) {
 	if(inUse)
 		return false;
@@ -77,6 +79,12 @@ public boolean stopTransfer() {
 		return true;
 	}
 }
+
+
+public ContainerData toData() {
+	return (ContainerData)this;
+}
+
 public void free() {
 	reserved = false;
 	user = "";

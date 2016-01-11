@@ -50,15 +50,39 @@ public class Panimo {
 		return s;
 	}
 	
+	
+	private ContainerData[] silosData() {
+		ContainerData[] d = new ContainerData[silos.length];
+		for(int x = 0; x < silos.length; x++) {
+			d[x] = silos[x].toData();
+		}
+		return d;
+	}
+	private ContainerData[] processorsData() {
+		ContainerData[] d = new ContainerData[processors.length];
+		for(int x = 0; x < processors.length; x++) {
+			d[x] = processors[x].toData();
+		}
+		return d;
+	}
+	
+	private ContainerData[] tanksData() {
+		ContainerData[] d = new ContainerData[tanks.length];
+		for(int x = 0; x < tanks.length; x++) {
+			d[x] = tanks[x].toData();
+		}
+		return d;
+	}
+	
 	public PanimoData getData() {
 		return new PanimoData(
-				silos.toData(),
-				processors.toData(),
-				tanks.toData(),
+				silosData(),
+				processorsData(),
+				tanksData(),
 				loader.isFree(),
 				new boolean[] { siloPumps[0].isFree(), siloPumps[1].isFree() },
 				new boolean[] { pumps[0].isFree(), pumps[1].isFree() },
-				new boolean[] { bottlePumps[0].isFree(), BottlePumps[1].isFree() })
+				new boolean[] { bottlePumps[0].isFree(), bottlePumps[1].isFree() });
 				
 	}
 	

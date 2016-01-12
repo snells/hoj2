@@ -130,7 +130,7 @@ public class MainWindow extends javax.swing.JFrame {
         siloPanel.setBackground(new java.awt.Color(204, 204, 204));
 
         silo1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        silo1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/silo.jpg"))); // NOI18N
+	silo1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/silo.jpg"))); // NOI18N
         silo1Label.setText("Silo 1");
         silo1Label.setFocusable(false);
         silo1Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

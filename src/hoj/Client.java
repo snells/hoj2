@@ -23,8 +23,12 @@ public class Client extends UnicastRemoteObject implements ClientInter, Runnable
 	
 	public void run() {
 		while(!end) {
-			PanimoData d = server.getData();
-			window.update(d);
+			try {
+				PanimoData d = server.getData();
+				window.update(d);
+			} catch(RemoteException e) {
+				e.printStackTrace();
+			}
 			try {
 				Thread.sleep(500);
 			} catch(Exception e) {}
@@ -32,9 +36,24 @@ public class Client extends UnicastRemoteObject implements ClientInter, Runnable
 	}
 	
 	@Override
-	public String getName() {
+	public String getName() throws RemoteException {
 		return name;
 	}
 	
-
+	public void siloFree(int n) {
+		try {
+			server.siloFree(getName(), n);	
+		} catch (RemoteException e) {}
+	}
+	public void siloReserve(int num) {
+		try {
+			server.siloReserve(getName(), num);	
+		} catch (RemoteException e) {}
+	}
+	
+	public void processorReserve(int n) {
+		try {
+			server.processorReserve(getName(),  n);
+		} catch (RemoteException e) {}
+	}
 }

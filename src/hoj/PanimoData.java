@@ -1,6 +1,8 @@
 package hoj;
 
-public class PanimoData {
+import java.io.Serializable;
+
+public class PanimoData implements Serializable {
 	
 	public ContainerData[] silos;
 	public ContainerData[] processors;

@@ -5,6 +5,10 @@
  */
 package hoj;
 
+import java.rmi.Naming;
+import java.rmi.Remote;
+
+import hoj.*;
 //import hoj.Container;
 
 /**
@@ -126,7 +130,7 @@ public class MainWindow extends javax.swing.JFrame {
         siloPanel.setBackground(new java.awt.Color(204, 204, 204));
 
         silo1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        silo1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/silo.jpg"))); // NOI18N
+        silo1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/silo.jpg"))); // NOI18N
         silo1Label.setText("Silo 1");
         silo1Label.setFocusable(false);
         silo1Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -146,7 +150,7 @@ public class MainWindow extends javax.swing.JFrame {
         silo1Status.setPreferredSize(new java.awt.Dimension(100, 20));
 
         silo2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        silo2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/silo.jpg"))); // NOI18N
+        silo2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/silo.jpg"))); // NOI18N
         silo2Label.setText("Silo 2");
         silo2Label.setFocusable(false);
         silo2Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -166,7 +170,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         silo3Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        silo3Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/silo.jpg"))); // NOI18N
+        silo3Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/silo.jpg"))); // NOI18N
         silo3Label.setText("Silo 3");
         silo3Label.setFocusable(false);
         silo3Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -186,7 +190,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         silo4Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        silo4Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/silo.jpg"))); // NOI18N
+        silo4Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/silo.jpg"))); // NOI18N
         silo4Label.setText("Silo 4");
         silo4Label.setFocusable(false);
         silo4Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -295,7 +299,7 @@ public class MainWindow extends javax.swing.JFrame {
         tankPanel.setBackground(new java.awt.Color(204, 204, 204));
 
         tank1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tank1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/tank.jpg"))); // NOI18N
+        tank1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/tank.jpg"))); // NOI18N
         tank1Label.setText("Tank 1");
         tank1Label.setFocusable(false);
         tank1Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -315,7 +319,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         tank2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tank2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/tank.jpg"))); // NOI18N
+        tank2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/tank.jpg"))); // NOI18N
         tank2Label.setText("Tank 2");
         tank2Label.setFocusable(false);
         tank2Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -335,7 +339,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         tank3Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tank3Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/tank.jpg"))); // NOI18N
+        tank3Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/tank.jpg"))); // NOI18N
         tank3Label.setText("Tank 3");
         tank3Label.setFocusable(false);
         tank3Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -355,7 +359,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         tank4Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tank4Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/tank.jpg"))); // NOI18N
+        tank4Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/tank.jpg"))); // NOI18N
         tank4Label.setText("Tank 4");
         tank4Label.setFocusable(false);
         tank4Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -375,7 +379,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         tank5Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tank5Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/tank.jpg"))); // NOI18N
+        tank5Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/tank.jpg"))); // NOI18N
         tank5Label.setText("Tank 5");
         tank5Label.setFocusable(false);
         tank5Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -395,7 +399,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         tank6Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tank6Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/tank.jpg"))); // NOI18N
+        tank6Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/tank.jpg"))); // NOI18N
         tank6Label.setText("Tank 6");
         tank6Label.setFocusable(false);
         tank6Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -415,7 +419,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         tank7Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tank7Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/tank.jpg"))); // NOI18N
+        tank7Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/tank.jpg"))); // NOI18N
         tank7Label.setText("Tank 7");
         tank7Label.setFocusable(false);
         tank7Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -435,7 +439,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         tank8Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tank8Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/tank.jpg"))); // NOI18N
+        tank8Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/tank.jpg"))); // NOI18N
         tank8Label.setText("Tank 8");
         tank8Label.setFocusable(false);
         tank8Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -455,7 +459,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         tank9Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tank9Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/tank.jpg"))); // NOI18N
+        tank9Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/tank.jpg"))); // NOI18N
         tank9Label.setText("Tank 9");
         tank9Label.setFocusable(false);
         tank9Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -475,7 +479,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         tank10Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tank10Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/tank.jpg"))); // NOI18N
+        tank10Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/tank.jpg"))); // NOI18N
         tank10Label.setText("Tank 10");
         tank10Label.setFocusable(false);
         tank10Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -607,7 +611,7 @@ public class MainWindow extends javax.swing.JFrame {
         proc1Status.setPreferredSize(new java.awt.Dimension(100, 20));
 
         proc1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        proc1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/conveyor.jpg"))); // NOI18N
+        proc1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/conveyor.jpg"))); // NOI18N
         proc1Label.setText("Processor 1");
         proc1Label.setFocusable(false);
         proc1Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -621,7 +625,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         proc2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        proc2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/conveyor.jpg"))); // NOI18N
+        proc2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/conveyor.jpg"))); // NOI18N
         proc2Label.setText("Processor 2");
         proc2Label.setFocusable(false);
         proc2Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -675,7 +679,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         proc3Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        proc3Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/conveyor.jpg"))); // NOI18N
+        proc3Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/conveyor.jpg"))); // NOI18N
         proc3Label.setText("Processor 3");
         proc3Label.setFocusable(false);
         proc3Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -748,7 +752,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         siloLoadLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        siloLoadLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/conveyor.jpg"))); // NOI18N
+        siloLoadLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/conveyor.jpg"))); // NOI18N
         siloLoadLabel.setText("Silo loading");
         siloLoadLabel.setFocusable(false);
         siloLoadLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -800,7 +804,7 @@ public class MainWindow extends javax.swing.JFrame {
         pump1Status.setPreferredSize(new java.awt.Dimension(100, 20));
 
         pump1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pump1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/pump.jpg"))); // NOI18N
+        pump1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/pump.jpg"))); // NOI18N
         pump1Label.setText("Pump 1");
         pump1Label.setFocusable(false);
         pump1Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -814,7 +818,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         pump2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pump2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/pump.jpg"))); // NOI18N
+        pump2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/pump.jpg"))); // NOI18N
         pump2Label.setText("Pump 2");
         pump2Label.setFocusable(false);
         pump2Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -863,7 +867,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         bpump1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bpump1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/pump.jpg"))); // NOI18N
+        bpump1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/pump.jpg"))); // NOI18N
         bpump1Label.setText("Bottle pump 1");
         bpump1Label.setFocusable(false);
         bpump1Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -883,7 +887,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         bpump2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bpump2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/pump.jpg"))); // NOI18N
+        bpump2Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/pump.jpg"))); // NOI18N
         bpump2Label.setText("Bottle pump 2");
         bpump2Label.setFocusable(false);
         bpump2Label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -931,7 +935,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         procLoadLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        procLoadLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/conveyor.jpg"))); // NOI18N
+        procLoadLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/conveyor.jpg"))); // NOI18N
         procLoadLabel1.setText("Processor loading");
         procLoadLabel1.setFocusable(false);
         procLoadLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -964,7 +968,7 @@ public class MainWindow extends javax.swing.JFrame {
         procLoadConvStatus2.setPreferredSize(new java.awt.Dimension(100, 20));
 
         procLoadLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        procLoadLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hojclient/icons/conveyor.jpg"))); // NOI18N
+        procLoadLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hoj/icons/conveyor.jpg"))); // NOI18N
         procLoadLabel2.setText("Processor loading");
         procLoadLabel2.setFocusable(false);
         procLoadLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1084,128 +1088,140 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startSiloLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSiloLoadActionPerformed
-        // TODO Mitä tehdään, kun siilojen täytön ruuvikuljetin käynnistetään?
+   
     }//GEN-LAST:event_startSiloLoadActionPerformed
 
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
-        // TODO Mitä tehdään kun käyttäjä kirjautuu
+    	if(userName.getText().length() > 1) {
+    		try { 	
+    			client = new Client(this, server, userName.getText() );
+    			name = userName.getText();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    			System.exit(2);
+    		}
+    	}
     }//GEN-LAST:event_signInActionPerformed
 
     private void startProcLoad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad1ActionPerformed
-        // TODO Mitä tehdään kun keittimen täytön ruuvikuljetin 1 käynnistetään
+
     }//GEN-LAST:event_startProcLoad1ActionPerformed
 
     private void startProcLoad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad2ActionPerformed
-        // TODO Mitä tehdään kun keittimen täytön ruuvikuljetin 1 käynnistetään
     }//GEN-LAST:event_startProcLoad2ActionPerformed
 
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
-    	silo1Status.setText(Long.toString(c.getStuff()));
-    	update();
+    	if(silo1Label.getText().equals(name)) client.siloFree(0);
+    	else client.siloReserve(0); 
+
     }//GEN-LAST:event_reserveSilo1ActionPerformed
 
     private void reserveSilo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo2ActionPerformed
-        // TODO Mitä tehdään kun siilo2 varataan?
+    	if(silo2Label.getText().equals(name)) client.siloFree(1);
+    	else client.siloReserve(1); 
     }//GEN-LAST:event_reserveSilo2ActionPerformed
-
+	
     private void reserveSilo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo3ActionPerformed
-        // TODO Mitä tehdään kun siilo3 varataan?
+    	if(silo3Label.getText().equals(name)) client.siloFree(2);
+    	else client.siloReserve(2);
+    	
     }//GEN-LAST:event_reserveSilo3ActionPerformed
 
     private void reserveSilo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo4ActionPerformed
-        // TODO Mitä tehdään kun siilo4 varataan?
+    	if(silo4Label.getText().equals(name)) client.siloFree(3);
+    	else client.siloReserve(3);
+
     }//GEN-LAST:event_reserveSilo4ActionPerformed
 
     private void reserveProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc1ActionPerformed
-        // TODO Mitä tehdään kun keitin1 varataan?
+
     }//GEN-LAST:event_reserveProc1ActionPerformed
 
     private void startProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc1ActionPerformed
-        // TODO Mitä tehdään kun keitin1 käynnistetään?
+
     }//GEN-LAST:event_startProc1ActionPerformed
 
     private void reserveProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc2ActionPerformed
-        // TODO Mitä tehdään kun keitin2 varataan?
+
     }//GEN-LAST:event_reserveProc2ActionPerformed
 
     private void startProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc2ActionPerformed
-        // TODO Mitä tehdään kun keitin2 käynnistetään?
+
     }//GEN-LAST:event_startProc2ActionPerformed
 
     private void reserveProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc3ActionPerformed
-        // TODO Mitä tehdään kun keitin3 varataan?
+
     }//GEN-LAST:event_reserveProc3ActionPerformed
 
     private void startProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc3ActionPerformed
-        // TODO Mitä tehdään kun keitin3 käynnistetään?
+
     }//GEN-LAST:event_startProc3ActionPerformed
 
     private void startPump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump1ActionPerformed
-        // TODO Mitä tehdään kun pumppu1 käynnistetään?
+
     }//GEN-LAST:event_startPump1ActionPerformed
 
     private void startPump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump2ActionPerformed
-        // TODO Mitä tehdään kun pumppu2 käynnistetään?
+
     }//GEN-LAST:event_startPump2ActionPerformed
 
     private void startBpump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump1ActionPerformed
-        // TODO Mitä tehdään kun pumppu1 pullotukseen käynnistetään?
+
     }//GEN-LAST:event_startBpump1ActionPerformed
 
     private void startBpump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump2ActionPerformed
-        // TODO Mitä tehdään kun pumppu2 pullotukseen käynnistetään?
+
     }//GEN-LAST:event_startBpump2ActionPerformed
 
     private void reserveTank1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank1ActionPerformed
-        // TODO Mitä tehdään kun säiliö1 varataan?
+
     }//GEN-LAST:event_reserveTank1ActionPerformed
 
     private void reserveTank2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank2ActionPerformed
-        // TODO Mitä tehdään kun säiliö2 varataan?
+
     }//GEN-LAST:event_reserveTank2ActionPerformed
 
     private void reserveTank3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank3ActionPerformed
-        // TODO Mitä tehdään kun säiliö3 varataan?
+
     }//GEN-LAST:event_reserveTank3ActionPerformed
 
     private void reserveTank4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank4ActionPerformed
-        // TODO Mitä tehdään kun säiliö4 varataan?
+
     }//GEN-LAST:event_reserveTank4ActionPerformed
 
     private void reserveTank5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank5ActionPerformed
-        // TODO Mitä tehdään kun säiliö5 varataan?
+
     }//GEN-LAST:event_reserveTank5ActionPerformed
 
     private void reserveTank6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank6ActionPerformed
-        // TODO Mitä tehdään kun säiliö6 varataan?
+
     }//GEN-LAST:event_reserveTank6ActionPerformed
 
     private void reserveTank7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank7ActionPerformed
-        // TODO Mitä tehdään kun säiliö7 varataan?
+
     }//GEN-LAST:event_reserveTank7ActionPerformed
 
     private void reserveTank8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank8ActionPerformed
-        // TODO Mitä tehdään kun säiliö8 varataan?
+
     }//GEN-LAST:event_reserveTank8ActionPerformed
 
     private void reserveTank9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank9ActionPerformed
-        // TODO Mitä tehdään kun säiliö9 varataan?
+
     }//GEN-LAST:event_reserveTank9ActionPerformed
 
     private void reserveTank10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank10ActionPerformed
-        // TODO Mitä tehdään kun säiliö10 varataan?
+
     }//GEN-LAST:event_reserveTank10ActionPerformed
 
     private void procLoadAmount2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procLoadAmount2ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_procLoadAmount2ActionPerformed
 
     private void procLoadAmount1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procLoadAmount1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_procLoadAmount1ActionPerformed
 
     
-    public void update(PanimoData d) {}
     
     /**
      * @param args the command line arguments
@@ -1216,6 +1232,15 @@ public class MainWindow extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+    	
+    	try {
+    		//server = (Server)
+    		Remote x = Naming.lookup("//localhost:9001/panimo");
+    		server = (Server)x;
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    		System.exit(1);
+    	}
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -1242,11 +1267,36 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
     
+    static Server server;
+    static private Client client;
+    static private String name = "";
     
-    Container c = new Container(1, "s", 100);
-    void update() {
-    	c.transfer(100);
+ 
+    public void update(PanimoData d) {
+    	String t;
+    	ContainerData s = d.silos[0];
+    	t = s.reserved ? s.user : "free";
+    	silo1Label.setText(t);
+    	silo1Status.setText(Long.toString(s.stuff));
+    	s = d.silos[1];
+       	t = s.reserved ? s.user : "free";
+    	silo2Label.setText(t);
+    	silo2Status.setText(Long.toString(s.stuff));
+    	
+      	s = d.silos[2];
+      	t = s.reserved ? s.user : "free";
+   		silo3Label.setText(t);
+    	silo3Status.setText(Long.toString(s.stuff));
+    	
+   		s = d.silos[3];
+   		t = s.reserved ? s.user : "free";
+   		silo4Label.setText(t);
+    	silo1Status.setText(Long.toString(s.stuff));
+    	
+    	
     }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ProcLoadConvStatus1;
     private javax.swing.JLabel bpump1Label;

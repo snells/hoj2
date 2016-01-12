@@ -85,11 +85,19 @@ public ContainerData toData() {
 	return (ContainerData)this;
 }
 
-public void free() {
+
+public boolean free(String name) {
+	if(inUse)
+		return false;
+	if(!name.equals(user))
+		return false;
+	
 	reserved = false;
 	user = "";
 	inUse = false;
+	return true;
 }
+
 	
 	
 }

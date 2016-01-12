@@ -15,6 +15,29 @@ public class Panimo {
 		private ArrayList<String> clients;
 	
 	
+		public Panimo() {
+			silos = new Silo[4];
+			loader = new HardPump();
+			siloPumps = new HardPump[2];
+			siloPumps[0] = new HardPump();
+			siloPumps[1] = new HardPump();
+			processors = new Processor[3];
+			pumps = new LiquidPump[2];
+			pumps[0] = new LiquidPump();
+			pumps[1] = new LiquidPump();
+			tanks = new Tank[10];
+			bottlePumps = new LiquidPump[2];
+			bottlePumps[0] = new LiquidPump();
+			bottlePumps[1] = new LiquidPump();
+			for(int x = 0; x < 10; x++) {
+				if(x < 4)
+					silos[x] = new Silo(x);
+				if(x < 3)
+					processors[x] = new Processor(x);
+				tanks[x] = new Tank(x);
+			}
+			
+		}
 	public LiquidPump getPump(int n) {
 		if( pumps.length > n || n < 0)
 			return null;
@@ -98,9 +121,6 @@ public class Panimo {
 		}
 		return s;
 	}
-	public Panimo() {
-		
-	}
 
 
 	public boolean login(String name)  {
@@ -115,8 +135,15 @@ public class Panimo {
 			return false;
 	}
 		public boolean siloReserve(String name, int num)  {
-				return false;
+			System.out.println("Reserving silo");
+				return silos[num].reserve(name);
 	}
+
+		public boolean siloFree(String name, int num)  {
+			return silos[num].free(name);
+	}
+		
+		
 		public boolean siloPumpStart(String name, int num)  {
 		return false;
 	}

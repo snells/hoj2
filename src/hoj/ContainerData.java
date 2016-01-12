@@ -1,6 +1,8 @@
 package hoj;
 
-public class ContainerData {
+import java.io.Serializable;
+
+public class ContainerData implements Serializable {
 	protected int index;
 	protected String type;
 	protected long stuff;

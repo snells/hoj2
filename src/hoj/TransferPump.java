@@ -54,7 +54,7 @@ public abstract class TransferPump<T extends Container> extends Thread {
 		inUse = false;
 		contIn.stopTransfer();
 		if(contIn.getStuff() == 0)
-			contIn.free();
+			contIn.free(user);
 		contOut.stopTransfer();
 	}
 	

@@ -1,0 +1,1 @@
+javac src/hoj/*.java -d bin/

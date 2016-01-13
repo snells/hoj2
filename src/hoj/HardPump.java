@@ -1,10 +1,8 @@
 package hoj;
 
-public class HardPump extends TransferPump {
+public class HardPump<T extends Container> extends TransferPump<T> {
 
-	@Override
-	public void run() {
-			
+	public HardPump() {
+		speed = 500;
 	}
-
 }

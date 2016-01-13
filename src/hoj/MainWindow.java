@@ -1088,12 +1088,14 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startSiloLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSiloLoadActionPerformed
-   
-    }//GEN-LAST:event_startSiloLoadActionPerformed
+    	client.loaderStart();
+    	}//GEN-LAST:event_startSiloLoadActionPerformed
 
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
     	if(userName.getText().length() > 1) {
     		try { 	
+    			if(!server.login(userName.getText()))
+    				return;
     			client = new Client(this, server, userName.getText() );
     			name = userName.getText();
     		} catch (Exception e) {
@@ -1104,10 +1106,11 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_signInActionPerformed
 
     private void startProcLoad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad1ActionPerformed
-
+    	if(siloLoadLabel.getText().equals(name)) client.siloPumpStart(0);
     }//GEN-LAST:event_startProcLoad1ActionPerformed
 
     private void startProcLoad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad2ActionPerformed
+    	if(siloLoadLabel.getText().equals(name)) client.siloPumpStart(1);
     }//GEN-LAST:event_startProcLoad2ActionPerformed
 
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
@@ -1139,7 +1142,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveProc1ActionPerformed
 
     private void startProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc1ActionPerformed
-    	
+    	if(siloLoadLabel.getText().equals(name)) client.processorStart(0);
     }//GEN-LAST:event_startProc1ActionPerformed
 
     private void reserveProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc2ActionPerformed
@@ -1148,7 +1151,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveProc2ActionPerformed
 
     private void startProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc2ActionPerformed
-
+    	if(siloLoadLabel.getText().equals(name)) client.processorStart(1);
     }//GEN-LAST:event_startProc2ActionPerformed
 
     private void reserveProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc3ActionPerformed
@@ -1157,23 +1160,23 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveProc3ActionPerformed
 
     private void startProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc3ActionPerformed
-
+    	if(siloLoadLabel.getText().equals(name)) client.processorStart(2);
     }//GEN-LAST:event_startProc3ActionPerformed
 
     private void startPump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump1ActionPerformed
-
+    	if(siloLoadLabel.getText().equals(name)) client.pumpStart(0);
     }//GEN-LAST:event_startPump1ActionPerformed
 
     private void startPump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump2ActionPerformed
-
+    	if(siloLoadLabel.getText().equals(name)) client.pumpStart(1);
     }//GEN-LAST:event_startPump2ActionPerformed
 
     private void startBpump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump1ActionPerformed
-
+    	if(siloLoadLabel.getText().equals(name)) client.bottlePumpStart(0);
     }//GEN-LAST:event_startBpump1ActionPerformed
 
     private void startBpump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump2ActionPerformed
-
+    	if(siloLoadLabel.getText().equals(name)) client.bottlePumpStart(1);
     }//GEN-LAST:event_startBpump2ActionPerformed
 
     private void reserveTank1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank1ActionPerformed
@@ -1279,7 +1282,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
     }
-    
+   
     static Server server;
     static private Client client;
     static private String name = "";
@@ -1357,20 +1360,32 @@ public class MainWindow extends javax.swing.JFrame {
     	tank10Status.setText(Long.toString(s.stuff));
     	
     	s = d.processors[0];
+    	String x = s.procesState;
+    	
     	t = s.reserved ? s.user : "free";
     	proc1Label.setText(t);
     	proc1Status.setText(Long.toString(s.stuff));
-    	
+    	proc1User.setText(x);
     	s = d.processors[1];
+    	x = s.procesState;
     	t = s.reserved ? s.user : "free";
     	proc2Label.setText(t);
     	proc2Status.setText(Long.toString(s.stuff));
-    	
+    	proc2User.setText(x);
     	s = d.processors[2];
+    	x = s.procesState;
     	t = s.reserved ? s.user : "free";
     	proc3Label.setText(t);
     	proc3Status.setText(Long.toString(s.stuff));
+    	proc3User.setText(x);
     	
+    	siloLoadConvStatus.setText(d.loader ? "free" : "in use");
+    	bpump1Status.setText(d.bottlePumps[0] ? "free" : "in use");
+    	bpump2Status.setText(d.bottlePumps[1] ? "free" : "in use");
+    	pump1Status.setText(d.pumps[0] ? "free" : "in use");
+    	pump2Status.setText(d.pumps[1] ? "free" : "in use");
+    	procLoadConvStatus2.setText(d.siloPumps[1] ? "free" : "in use");
+    	ProcLoadConvStatus1.setText(d.siloPumps[0] ? "free" : "in use");
     }
     
     

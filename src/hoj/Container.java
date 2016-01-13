@@ -11,6 +11,7 @@ public class Container extends ContainerData {
 		stuff = 0;
 		inUse = false;
 		maxStuff = ms;
+		procesState = "";
 	}
 
 public boolean reserve(String name) {
@@ -37,7 +38,9 @@ public boolean connect(boolean t) {
 	
 }
 
-
+public boolean full() {
+	return (stuff >= maxStuff);
+}
 
 public String getUser() {
 	return user;
@@ -72,12 +75,8 @@ public boolean validateUser(String n) {
 }
 
 public boolean stopTransfer() {
-	if(!inUse)
-		return false;
-	else {
 		inUse = false;
 		return true;
-	}
 }
 
 

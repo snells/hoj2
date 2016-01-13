@@ -30,7 +30,7 @@ public class Client extends UnicastRemoteObject implements ClientInter, Runnable
 				e.printStackTrace();
 			}
 			try {
-				Thread.sleep(500);
+				Thread.sleep(250);
 			} catch(Exception e) {}
 		}
 	}
@@ -75,4 +75,30 @@ public class Client extends UnicastRemoteObject implements ClientInter, Runnable
 		} catch (RemoteException e) {e.printStackTrace();}
 	}
 	
+	public void loaderStart() {
+		System.out.println("CLIENT loader start");
+		try {
+			server.loaderStart(name);
+		} catch (RemoteException e) {e.printStackTrace();}
+	}
+	public void siloPumpStart(int num) {
+		try {
+			server.siloPumpStart(name,  num);
+		} catch (RemoteException e) {e.printStackTrace();}
+	}
+	public void pumpStart(int n) {
+		try {
+			server.pumpStart(name,  n);
+		} catch (RemoteException e) {e.printStackTrace();}
+	}
+	public void bottlePumpStart(int n) {
+		try {
+			server.bottlePumpStart(name,  n);
+		} catch (RemoteException e) {e.printStackTrace();}
+	}
+	public void processorStart(int n) {
+		try {
+			server.processorStart(name,  n);
+		} catch (RemoteException e) {e.printStackTrace();}
+	}
 }

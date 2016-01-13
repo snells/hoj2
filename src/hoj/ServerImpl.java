@@ -25,15 +25,14 @@ public class ServerImpl extends UnicastRemoteObject implements Server  {
 
 	@Override
 	public boolean login(String n) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		return panimo.login(n);
 	}
 
 
 	@Override
 	public boolean loaderStart(String n) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		System.out.println("SERVER loader start");
+		return panimo.loaderStart(n);
 	}
 
 
@@ -45,9 +44,8 @@ public class ServerImpl extends UnicastRemoteObject implements Server  {
 
 	@Override
 	public boolean siloPumpStart(String n, int num) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		return panimo.siloPumpStart(n, num);
+			}
 
 
 	@Override
@@ -58,15 +56,13 @@ public class ServerImpl extends UnicastRemoteObject implements Server  {
 
 	@Override
 	public boolean processorStart(String n, int num) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		return panimo.processorStart(n,  num);
 	}
 
 
 	@Override
 	public boolean pumpStart(String n, int num) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		return panimo.pumpStart(n, num);
 	}
 
 
@@ -78,8 +74,7 @@ public class ServerImpl extends UnicastRemoteObject implements Server  {
 
 	@Override
 	public boolean bottlePumpStart(String n, int num) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		return panimo.bottlePumpStart(n, num);
 	}
 	
 	

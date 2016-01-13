@@ -1,17 +1,22 @@
 package hoj;
 
-public abstract class TransferPump<T extends Container> extends Thread {
+public class TransferPump<T extends Container> extends Thread {
 	protected int speed; // stuff / second 
 	protected T contIn;
 	protected T contOut;
 	protected volatile boolean inUse;
-	protected boolean startFlag;
+	protected volatile boolean startFlag = false;
 	protected String user;
-	
+	protected boolean end = false;
+	protected boolean usingFiller;
 	
 	private boolean transfer(int count) {
-		long c = Math.min(count, contIn.getStuff());
-		c = Math.min(c, contOut.roomLeft());
+		
+		long sin = contIn.getStuff();
+		long rl = contOut.roomLeft();
+		long c = Math.min(count, sin);
+		c = Math.min(c, rl);
+		System.out.println("putki transfer " + " cont in stuff " + sin + " out room left " + rl + " siirto " + c);
 		if(c == 0)
 			return false;
 		else {
@@ -24,40 +29,57 @@ public abstract class TransferPump<T extends Container> extends Thread {
 		return !inUse;
 	}
 	
-	public synchronized boolean prepare(String name, T in, T out) {
+	public synchronized boolean prepare(String name, T in, T out, boolean filler) {
+		System.out.println("putki prepare");
 		if(inUse)
 			return false;
 		if(in == null || out == null)
 			return false;
+		System.out.println("putki validing");
 		if(!in.validateUser(name) || !out.validateUser(name))
 			return false;
+		System.out.println("putki connecting");
 		if(!in.connect(true))
 			return false;
 		if(!out.connect(false))
 			return false;
+		usingFiller = filler;
+		System.out.println("putki init success");
 		inUse = true;
-		in.startTransfer(true);
-		out.startTransfer(false);
+		in.startTransfer(false);
+		out.startTransfer(true);
 		user = name;
-		startFlag = true;
 		contIn = in;
 		contOut = out;
+		startFlag = true;
 		return true;
 	}
 	
-	private void work() {
+	private synchronized void work() {
+		System.out.println("putki working");
 		while(transfer(speed)) {
 			try {
 				Thread.sleep(1000);
 			} catch(Exception t) {}
 		}
-		inUse = false;
 		contIn.stopTransfer();
-		if(contIn.getStuff() == 0)
+		if(contIn.getStuff() == 0 || usingFiller)
 			contIn.free(user);
 		contOut.stopTransfer();
+		inUse = false;
+		startFlag = false;
 	}
 	
 	
-	public abstract void run();
+	public void run() {
+		System.out.println("LOADER thread start");
+		while(!end) {
+			if(startFlag) {
+				System.out.println("LOADER startFlag true");
+				work();
+				startFlag = false;
+			}
+		}
+		System.out.println("LOADER thread stop");
+	}
 }

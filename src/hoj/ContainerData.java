@@ -11,6 +11,7 @@ public class ContainerData implements Serializable {
 	protected String user;
 	protected boolean inUse;
 	protected boolean fill;
+	public String procesState;
 
 }
 

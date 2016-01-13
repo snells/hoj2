@@ -5,16 +5,20 @@ import java.util.HashMap;
 
 public class Panimo {
 	
-		private HardPump loader;
+		private Container filler = new Container(0, "", Long.MAX_VALUE);
+		private volatile HardPump loader;
 		private Silo[] silos;
 		private HardPump[] siloPumps;
 		private Processor[] processors;
+		@SuppressWarnings("rawtypes")
 		private LiquidPump[] pumps;
 		private Tank[] tanks;
+		@SuppressWarnings("rawtypes")
 		private LiquidPump[] bottlePumps;
 		private ArrayList<String> clients;
 	
 	
+		@SuppressWarnings("rawtypes")
 		public Panimo() {
 			silos = new Silo[4];
 			loader = new HardPump();
@@ -36,8 +40,10 @@ public class Panimo {
 					processors[x] = new Processor(x);
 				tanks[x] = new Tank(x);
 			}
-			
+			clients = new ArrayList<String>();
+			loader.start();
 		}
+	@SuppressWarnings("rawtypes")
 	public LiquidPump getPump(int n) {
 		if( pumps.length > n || n < 0)
 			return null;
@@ -130,9 +136,21 @@ public class Panimo {
 		return true;
 	}
 	
+		@SuppressWarnings("unchecked")
 		public boolean loaderStart(String name)  {
-			
-			return false;
+			if(!filler.reserve(name))
+				return false;		
+			filler.stuff = 40000;
+			ArrayList<Silo> ct = clientsSilos(name);
+			if(ct.size() < 1) 
+				return false;
+			for(Silo t : ct) {
+				if(t.full())
+					continue;
+				boolean ret = loader.prepare(name, filler, t, true);
+				if(ret) return ret;
+			}
+			return false;			
 	}
 		public boolean siloReserve(String name, int num)  {
 			System.out.println("Reserving silo");

@@ -52,8 +52,7 @@ public class ServerImpl extends UnicastRemoteObject implements Server  {
 
 	@Override
 	public boolean processorReserve(String n, int num) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		return panimo.processorReserve(n,  num);
 	}
 
 
@@ -73,8 +72,7 @@ public class ServerImpl extends UnicastRemoteObject implements Server  {
 
 	@Override
 	public boolean tankReserve(String n, int num) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		return panimo.tankReserve(n,  num);
 	}
 
 
@@ -89,6 +87,17 @@ public class ServerImpl extends UnicastRemoteObject implements Server  {
 	public boolean siloFree(String n, int num) throws RemoteException {
 		return panimo.siloFree(n,  num);
 	}
+	
+	@Override
+	public boolean tankFree(String n, int num) throws RemoteException {
+		return panimo.tankFree(n, num);
+	}
+	
+	@Override
+	public boolean processorFree(String n, int num) throws RemoteException {
+		return panimo.processorFree(n, num);
+	}
+	
 	@Override
 	public PanimoData getData() throws RemoteException {
 		return panimo.getData();

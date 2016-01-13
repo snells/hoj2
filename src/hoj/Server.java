@@ -16,7 +16,8 @@ boolean processorStart(String n, int num)throws RemoteException;
 boolean pumpStart(String n, int num) throws RemoteException;
 boolean tankReserve(String n, int num) throws RemoteException;
 boolean bottlePumpStart(String n, int num) throws RemoteException;
-
 boolean siloFree(String n, int num) throws RemoteException;
+boolean processorFree(String n, int num) throws RemoteException;
+boolean tankFree(String n, int num) throws RemoteException;
 PanimoData getData()  throws RemoteException;
 }

@@ -1134,15 +1134,17 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveSilo4ActionPerformed
 
     private void reserveProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc1ActionPerformed
-
+    	if(proc1Label.getText().equals(name)) client.processorFree(0);
+    	else client.processorReserve(0); 
     }//GEN-LAST:event_reserveProc1ActionPerformed
 
     private void startProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc1ActionPerformed
-
+    	
     }//GEN-LAST:event_startProc1ActionPerformed
 
     private void reserveProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc2ActionPerformed
-
+    	if(proc2Label.getText().equals(name)) client.processorFree(1);
+    	else client.processorReserve(1); 
     }//GEN-LAST:event_reserveProc2ActionPerformed
 
     private void startProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc2ActionPerformed
@@ -1150,7 +1152,8 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startProc2ActionPerformed
 
     private void reserveProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc3ActionPerformed
-
+    	if(proc3Label.getText().equals(name)) client.processorFree(2);
+    	else client.processorReserve(2); 
     }//GEN-LAST:event_reserveProc3ActionPerformed
 
     private void startProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc3ActionPerformed
@@ -1174,43 +1177,53 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startBpump2ActionPerformed
 
     private void reserveTank1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank1ActionPerformed
-
+    	if(tank1Label.getText().equals(name)) client.tankFree(0);
+    	else client.tankReserve(0); 
     }//GEN-LAST:event_reserveTank1ActionPerformed
 
     private void reserveTank2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank2ActionPerformed
-
+    	if(tank2Label.getText().equals(name)) client.tankFree(1);
+    	else client.tankReserve(1); 
     }//GEN-LAST:event_reserveTank2ActionPerformed
 
     private void reserveTank3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank3ActionPerformed
-
+    	if(tank3Label.getText().equals(name)) client.tankFree(2);
+    	else client.tankReserve(2); 
     }//GEN-LAST:event_reserveTank3ActionPerformed
 
     private void reserveTank4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank4ActionPerformed
-
+    	if(tank4Label.getText().equals(name)) client.tankFree(3);
+    	else client.tankReserve(3); 
     }//GEN-LAST:event_reserveTank4ActionPerformed
 
     private void reserveTank5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank5ActionPerformed
-
+    	if(tank5Label.getText().equals(name)) client.tankFree(4);
+    	else client.tankReserve(4); 
     }//GEN-LAST:event_reserveTank5ActionPerformed
 
     private void reserveTank6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank6ActionPerformed
-
+    	if(tank6Label.getText().equals(name)) client.tankFree(5);
+    	else client.tankReserve(5); 
     }//GEN-LAST:event_reserveTank6ActionPerformed
 
     private void reserveTank7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank7ActionPerformed
-
+    	if(tank7Label.getText().equals(name)) client.tankFree(6);
+    	else client.tankReserve(6); 
     }//GEN-LAST:event_reserveTank7ActionPerformed
 
     private void reserveTank8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank8ActionPerformed
-
+    	if(tank8Label.getText().equals(name)) client.tankFree(7);
+    	else client.tankReserve(7); 
     }//GEN-LAST:event_reserveTank8ActionPerformed
 
     private void reserveTank9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank9ActionPerformed
-
+    	if(tank9Label.getText().equals(name)) client.tankFree(8);
+    	else client.tankReserve(8); 
     }//GEN-LAST:event_reserveTank9ActionPerformed
 
     private void reserveTank10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank10ActionPerformed
-
+    	if(tank10Label.getText().equals(name)) client.tankFree(9);
+    	else client.tankReserve(9); 
     }//GEN-LAST:event_reserveTank10ActionPerformed
 
     private void procLoadAmount2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procLoadAmount2ActionPerformed
@@ -1291,8 +1304,72 @@ public class MainWindow extends javax.swing.JFrame {
    		s = d.silos[3];
    		t = s.reserved ? s.user : "free";
    		silo4Label.setText(t);
-    	silo1Status.setText(Long.toString(s.stuff));
+    	silo4Status.setText(Long.toString(s.stuff));
     	
+    	s = d.tanks[0];
+    	t = s.reserved ? s.user : "free";
+    	tank1Label.setText(t);
+    	tank1Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.tanks[1];
+    	t = s.reserved ? s.user : "free";
+    	tank2Label.setText(t);
+    	tank2Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.tanks[2];
+    	t = s.reserved ? s.user : "free";
+    	tank3Label.setText(t);
+    	tank3Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.tanks[3];
+    	t = s.reserved ? s.user : "free";
+    	tank4Label.setText(t);
+    	tank4Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.tanks[4];
+    	t = s.reserved ? s.user : "free";
+    	tank5Label.setText(t);
+    	tank5Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.tanks[5];
+    	t = s.reserved ? s.user : "free";
+    	tank6Label.setText(t);
+    	tank6Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.tanks[6];
+    	t = s.reserved ? s.user : "free";
+    	tank7Label.setText(t);
+    	tank7Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.tanks[7];
+    	t = s.reserved ? s.user : "free";
+    	tank8Label.setText(t);
+    	tank8Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.tanks[8];
+    	t = s.reserved ? s.user : "free";
+    	tank9Label.setText(t);
+    	tank9Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.tanks[9];
+    	t = s.reserved ? s.user : "free";
+    	tank10Label.setText(t);
+    	tank10Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.processors[0];
+    	t = s.reserved ? s.user : "free";
+    	proc1Label.setText(t);
+    	proc1Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.processors[1];
+    	t = s.reserved ? s.user : "free";
+    	proc2Label.setText(t);
+    	proc2Status.setText(Long.toString(s.stuff));
+    	
+    	s = d.processors[2];
+    	t = s.reserved ? s.user : "free";
+    	proc3Label.setText(t);
+    	proc3Status.setText(Long.toString(s.stuff));
     	
     }
     

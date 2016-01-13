@@ -148,16 +148,24 @@ public class Panimo {
 		return false;
 	}
 		public boolean processorReserve(String name, int num) {
-			return false;
+			System.out.println("Reserving processor");
+			return processors[num].reserve(name);
 	}
 		public boolean processorStart(String name, int num) {
 			return false;
 	}
+		public boolean processorFree(String name, int num) {
+			return processors[num].free(name);
+	}
 		public boolean pumpStart(String name, int num) {
 			return false;
 	}
-		public boolean tankReserve(String name, int num)  {
-			return false;
+		public boolean tankReserve(String name, int num) {
+			System.out.println("Reserving tank");
+			return tanks[num].reserve(name);
+	}
+		public boolean tankFree(String name, int num) {
+			return tanks[num].free(name);
 	}
 	public boolean bottlePumpStart(String name, int num)  {
 		return false;

@@ -51,9 +51,28 @@ public class Client extends UnicastRemoteObject implements ClientInter, Runnable
 		} catch (RemoteException e) {}
 	}
 	
-	public void processorReserve(int n) {
+	public void processorFree(int n) {
 		try {
-			server.processorReserve(getName(),  n);
+			server.processorFree(getName(), n);
 		} catch (RemoteException e) {}
 	}
+	
+	public void processorReserve(int n) {
+		try {
+			server.processorReserve(getName(), n);
+		} catch (RemoteException e) {}
+	}
+	
+	public void tankFree(int n) {
+		try {
+			server.tankFree(getName(), n);
+		} catch (RemoteException e) {}
+	}
+	
+	public void tankReserve(int n) {
+		try {
+			server.tankReserve(getName(), n);
+		} catch (RemoteException e) {e.printStackTrace();}
+	}
+	
 }

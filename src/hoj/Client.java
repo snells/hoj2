@@ -81,24 +81,28 @@ public class Client extends UnicastRemoteObject implements ClientInter, Runnable
 			server.loaderStart(name);
 		} catch (RemoteException e) {e.printStackTrace();}
 	}
-	public void siloPumpStart(int num) {
+	public void siloPumpStart(int num, int count) {
+		System.out.println("CLIENT silo pump start");
 		try {
-			server.siloPumpStart(name,  num);
+			server.siloPumpStart(name,  num, count);
 		} catch (RemoteException e) {e.printStackTrace();}
 	}
 	public void pumpStart(int n) {
+		System.out.println("CLIENT pump start");
 		try {
 			server.pumpStart(name,  n);
 		} catch (RemoteException e) {e.printStackTrace();}
 	}
 	public void bottlePumpStart(int n) {
+		System.out.println("CLIENT bottle pump start");
 		try {
 			server.bottlePumpStart(name,  n);
 		} catch (RemoteException e) {e.printStackTrace();}
 	}
 	public void processorStart(int n) {
+		System.out.println("CLIENT processor start");
 		try {
-			server.processorStart(name,  n);
+			server.processorStart(name, n);
 		} catch (RemoteException e) {e.printStackTrace();}
 	}
 }

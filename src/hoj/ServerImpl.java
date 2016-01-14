@@ -43,8 +43,9 @@ public class ServerImpl extends UnicastRemoteObject implements Server  {
 
 
 	@Override
-	public boolean siloPumpStart(String n, int num) throws RemoteException {
-		return panimo.siloPumpStart(n, num);
+	public boolean siloPumpStart(String n, int num, int count) throws RemoteException {
+		System.out.println("SERVER silo pump start with count " + count);
+		return panimo.siloPumpStart(n, num, count);
 			}
 
 
@@ -56,12 +57,14 @@ public class ServerImpl extends UnicastRemoteObject implements Server  {
 
 	@Override
 	public boolean processorStart(String n, int num) throws RemoteException {
+		System.out.println("SERVER processor start");
 		return panimo.processorStart(n,  num);
 	}
 
 
 	@Override
 	public boolean pumpStart(String n, int num) throws RemoteException {
+		System.out.println("SERVER pump start");
 		return panimo.pumpStart(n, num);
 	}
 
@@ -74,6 +77,7 @@ public class ServerImpl extends UnicastRemoteObject implements Server  {
 
 	@Override
 	public boolean bottlePumpStart(String n, int num) throws RemoteException {
+		System.out.println("SERVER bottle pump start");
 		return panimo.bottlePumpStart(n, num);
 	}
 	

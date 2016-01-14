@@ -10,8 +10,14 @@ public class TransferPump<T extends Container> extends Thread {
 	protected boolean end = false;
 	protected boolean usingFiller;
 	
+	
+	protected boolean extraTest() {
+		return false;
+	}
+	
 	private boolean transfer(int count) {
-		
+		if(extraTest())
+			return false;
 		long sin = contIn.getStuff();
 		long rl = contOut.roomLeft();
 		long c = Math.min(count, sin);
@@ -55,8 +61,10 @@ public class TransferPump<T extends Container> extends Thread {
 		return true;
 	}
 	
+	
 	private synchronized void work() {
 		System.out.println("putki working");
+	
 		while(transfer(speed)) {
 			try {
 				Thread.sleep(1000);

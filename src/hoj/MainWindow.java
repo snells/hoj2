@@ -1096,7 +1096,7 @@ public class MainWindow extends javax.swing.JFrame {
     		try { 	
     			if(!server.login(userName.getText()))
     				return;
-    			client = new Client(this, server, userName.getText() );
+    			client = new Client(this, server, userName.getText());
     			name = userName.getText();
     		} catch (Exception e) {
     			e.printStackTrace();
@@ -1106,11 +1106,27 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_signInActionPerformed
 
     private void startProcLoad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad1ActionPerformed
-    	if(siloLoadLabel.getText().equals(name)) client.siloPumpStart(0);
+       	String s = (procLoadAmount1.getText());
+    	int c;
+    	if(s.length() < 1)
+    		c = -1;
+    	else { 
+    		c = Integer.parseInt(s);
+    		procLoadAmount1.setText("");
+    	}
+    	client.siloPumpStart(0, c);
     }//GEN-LAST:event_startProcLoad1ActionPerformed
 
     private void startProcLoad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad2ActionPerformed
-    	if(siloLoadLabel.getText().equals(name)) client.siloPumpStart(1);
+    	String s = (procLoadAmount2.getText());
+    	int c;
+    	if(s.length() < 1)
+    		c = -1;
+    	else { 
+    		c = Integer.parseInt(s);
+    		procLoadAmount2.setText("");
+    	}
+    	client.siloPumpStart(1, c);
     }//GEN-LAST:event_startProcLoad2ActionPerformed
 
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
@@ -1142,7 +1158,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveProc1ActionPerformed
 
     private void startProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc1ActionPerformed
-    	if(siloLoadLabel.getText().equals(name)) client.processorStart(0);
+    	if(proc1Label.getText().equals(name)) client.processorStart(0);
     }//GEN-LAST:event_startProc1ActionPerformed
 
     private void reserveProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc2ActionPerformed
@@ -1151,7 +1167,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveProc2ActionPerformed
 
     private void startProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc2ActionPerformed
-    	if(siloLoadLabel.getText().equals(name)) client.processorStart(1);
+    	if(proc2Label.getText().equals(name)) client.processorStart(1);
     }//GEN-LAST:event_startProc2ActionPerformed
 
     private void reserveProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc3ActionPerformed
@@ -1160,23 +1176,23 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveProc3ActionPerformed
 
     private void startProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc3ActionPerformed
-    	if(siloLoadLabel.getText().equals(name)) client.processorStart(2);
+    	if(proc3Label.getText().equals(name)) client.processorStart(2);
     }//GEN-LAST:event_startProc3ActionPerformed
 
     private void startPump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump1ActionPerformed
-    	if(siloLoadLabel.getText().equals(name)) client.pumpStart(0);
+    	client.pumpStart(0);
     }//GEN-LAST:event_startPump1ActionPerformed
 
     private void startPump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump2ActionPerformed
-    	if(siloLoadLabel.getText().equals(name)) client.pumpStart(1);
+    	 client.pumpStart(1);
     }//GEN-LAST:event_startPump2ActionPerformed
 
     private void startBpump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump1ActionPerformed
-    	if(siloLoadLabel.getText().equals(name)) client.bottlePumpStart(0);
+    	 client.bottlePumpStart(0);
     }//GEN-LAST:event_startBpump1ActionPerformed
 
     private void startBpump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump2ActionPerformed
-    	if(siloLoadLabel.getText().equals(name)) client.bottlePumpStart(1);
+    	client.bottlePumpStart(1);
     }//GEN-LAST:event_startBpump2ActionPerformed
 
     private void reserveTank1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank1ActionPerformed

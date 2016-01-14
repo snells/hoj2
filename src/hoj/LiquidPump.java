@@ -3,7 +3,7 @@ package hoj;
 public class LiquidPump<T extends Container> extends TransferPump<T> {
 	
 
-	
-	public void run() {
+	public LiquidPump() {
+		speed = 200;
 	}
 }

@@ -10,7 +10,7 @@ public interface Server extends Remote {
 boolean login(String n) throws RemoteException;
 boolean loaderStart(String n) throws RemoteException ;
 boolean siloReserve(String n, int num)throws RemoteException;
-boolean siloPumpStart(String n, int num)throws RemoteException;
+boolean siloPumpStart(String n, int num, int count)throws RemoteException;
 boolean processorReserve(String n, int num)throws RemoteException;
 boolean processorStart(String n, int num)throws RemoteException;
 boolean pumpStart(String n, int num) throws RemoteException;

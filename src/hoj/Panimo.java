@@ -3,22 +3,24 @@ package hoj;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class Panimo {
 	
-		private Container filler = new Container(0, "", Long.MAX_VALUE);
+		private Container filler = new Container(-1, "", Long.MAX_VALUE);
+		private Container drain = new Container(-2, "", Long.MAX_VALUE);
 		private volatile HardPump loader;
 		private Silo[] silos;
 		private HardPump[] siloPumps;
 		private Processor[] processors;
-		@SuppressWarnings("rawtypes")
 		private LiquidPump[] pumps;
 		private Tank[] tanks;
-		@SuppressWarnings("rawtypes")
 		private LiquidPump[] bottlePumps;
 		private ArrayList<String> clients;
 	
 	
-		@SuppressWarnings("rawtypes")
+	
+			
 		public Panimo() {
 			silos = new Silo[4];
 			loader = new HardPump();
@@ -41,9 +43,16 @@ public class Panimo {
 				tanks[x] = new Tank(x);
 			}
 			clients = new ArrayList<String>();
-			loader.start();
+			for(int x = 0; x < 2; x++) {
+				if(x < 1)
+					loader.start();
+					
+				siloPumps[x].start();
+				pumps[x].start();
+				bottlePumps[x].start();
+			}
 		}
-	@SuppressWarnings("rawtypes")
+	
 	public LiquidPump getPump(int n) {
 		if( pumps.length > n || n < 0)
 			return null;
@@ -127,7 +136,7 @@ public class Panimo {
 		}
 		return s;
 	}
-
+	
 
 	public boolean login(String name)  {
 		if(loggedIn(name))
@@ -136,8 +145,8 @@ public class Panimo {
 		return true;
 	}
 	
-		@SuppressWarnings("unchecked")
-		public boolean loaderStart(String name)  {
+		
+	public boolean loaderStart(String name)  {
 			if(!filler.reserve(name))
 				return false;		
 			filler.stuff = 40000;
@@ -147,6 +156,7 @@ public class Panimo {
 			for(Silo t : ct) {
 				if(t.full())
 					continue;
+				loader.setCount(-1);
 				boolean ret = loader.prepare(name, filler, t, true);
 				if(ret) return ret;
 			}
@@ -162,22 +172,78 @@ public class Panimo {
 	}
 		
 		
-		public boolean siloPumpStart(String name, int num)  {
-		return false;
-	}
+		public boolean siloPumpStart(String name, int num, int count)  {
+			System.out.println("PANIMO silo pump start");
+			ArrayList<Silo> ct = clientsSilos(name);
+			ArrayList<Processor> cp = clientsProcessors(name);
+			if(ct.size() < 1) 
+				return false;
+			Silo s = null;
+			for(Silo t : ct) {
+				if(t.getStuff() == 0 || t.inUse)
+					continue;
+				s = t;
+			}
+			Processor p = null;
+			for(Processor t : cp) {
+				if(t.procesReady() || t.inUse)
+					continue;
+				p = t;
+			}
+			if(s == null || p == null)
+				return false;
+			
+			HardPump sp = siloPumps[num];
+				if(sp.inUse)
+					return false;
+			sp.setCount(count);
+			return sp.prepare(name, s, p, false); 
+			
+		}
+		
+		
 		public boolean processorReserve(String name, int num) {
 			System.out.println("Reserving processor");
 			return processors[num].reserve(name);
 	}
 		public boolean processorStart(String name, int num) {
-			return false;
+			Processor p = processors[num];
+			if(p.inUse || !p.validateUser(name))
+				return false;
+			return p.procesStart();
 	}
 		public boolean processorFree(String name, int num) {
 			return processors[num].free(name);
 	}
+		
 		public boolean pumpStart(String name, int num) {
-			return false;
-	}
+			System.out.println("PANIMO pump start");
+			ArrayList<Processor> cp = clientsProcessors(name);
+			ArrayList<Tank> ct = clientsTanks(name);
+			if(cp.size() < 1) 
+				return false;
+			Processor p = null;
+			for(Processor t : cp) {
+				if(!t.procesReady() || t.inUse)
+					continue;
+				p = t;
+			}
+			Tank t = null;
+			for(Tank a : ct) {
+				if(a.roomLeft() == 0 || a.inUse)
+					continue;
+				t = a;
+			}
+			if(p == null || t == null)
+				return false;
+			
+			LiquidPump lp = pumps[num];
+				if(lp.inUse)
+					return false;
+			return lp.prepare(name, p, t, false); 
+			
+		}
+		
 		public boolean tankReserve(String name, int num) {
 			System.out.println("Reserving tank");
 			return tanks[num].reserve(name);
@@ -186,6 +252,21 @@ public class Panimo {
 			return tanks[num].free(name);
 	}
 	public boolean bottlePumpStart(String name, int num)  {
-		return false;
+		if(!drain.reserve(name))
+			return false;		
+		drain.stuff = 0;
+		ArrayList<Tank> ct = clientsTanks(name);
+		if(ct.size() < 1) 
+			return false;
+		Tank in = null;
+		for(Tank t : ct) {
+			if(t.getStuff() == 0 || t.inUse)
+				continue;
+			in = t;
+			break;
+		}
+		if(in == null)
+			return false;
+		return bottlePumps[num].prepare(name, in, drain, false);
 	}
 }

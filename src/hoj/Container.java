@@ -81,7 +81,10 @@ public boolean stopTransfer() {
 
 
 public ContainerData toData() {
-	return (ContainerData)this;
+	return new ContainerData(
+			index, type, stuff, maxStuff,
+			reserved, user, inUse, fill, procesState);
+	//return (ContainerData)this;
 }
 
 

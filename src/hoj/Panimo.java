@@ -157,7 +157,7 @@ public class Panimo {
 				if(t.full())
 					continue;
 				loader.setCount(-1);
-				boolean ret = loader.prepare(name, filler, t, true);
+				boolean ret = loader.prepare(name, filler, t, true, false);
 				if(ret) return ret;
 			}
 			return false;			
@@ -189,6 +189,7 @@ public class Panimo {
 				if(t.procesReady() || t.inUse)
 					continue;
 				p = t;
+				break;
 			}
 			if(s == null || p == null)
 				return false;
@@ -197,7 +198,7 @@ public class Panimo {
 				if(sp.inUse)
 					return false;
 			sp.setCount(count);
-			return sp.prepare(name, s, p, false); 
+			return sp.prepare(name, s, p, false, false); 
 			
 		}
 		
@@ -240,7 +241,7 @@ public class Panimo {
 			LiquidPump lp = pumps[num];
 				if(lp.inUse)
 					return false;
-			return lp.prepare(name, p, t, false); 
+			return lp.prepare(name, p, t, false, false); 
 			
 		}
 		
@@ -267,6 +268,6 @@ public class Panimo {
 		}
 		if(in == null)
 			return false;
-		return bottlePumps[num].prepare(name, in, drain, false);
+		return bottlePumps[num].prepare(name, in, drain, false, true);
 	}
 }

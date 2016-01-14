@@ -9,6 +9,7 @@ public class TransferPump<T extends Container> extends Thread {
 	protected String user;
 	protected boolean end = false;
 	protected boolean usingFiller;
+	protected boolean usingDrain;
 	
 	
 	protected boolean extraTest() {
@@ -35,7 +36,7 @@ public class TransferPump<T extends Container> extends Thread {
 		return !inUse;
 	}
 	
-	public synchronized boolean prepare(String name, T in, T out, boolean filler) {
+	public synchronized boolean prepare(String name, T in, T out, boolean filler, boolean drain) {
 		System.out.println("putki prepare");
 		if(inUse)
 			return false;
@@ -50,6 +51,7 @@ public class TransferPump<T extends Container> extends Thread {
 		if(!out.connect(false))
 			return false;
 		usingFiller = filler;
+		usingDrain = drain;
 		System.out.println("putki init success");
 		inUse = true;
 		in.startTransfer(false);
@@ -74,6 +76,8 @@ public class TransferPump<T extends Container> extends Thread {
 		if(contIn.getStuff() == 0 || usingFiller)
 			contIn.free(user);
 		contOut.stopTransfer();
+		if(usingDrain)
+			contOut.free(user);
 		inUse = false;
 		startFlag = false;
 	}

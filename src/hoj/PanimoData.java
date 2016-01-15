@@ -2,8 +2,10 @@ package hoj;
 
 import java.io.Serializable;
 
+// used to get the panimo state to client
 public class PanimoData implements Serializable {
-	
+
+	private static final long serialVersionUID = 6385575812664281133L;
 	public ContainerData[] silos;
 	public ContainerData[] processors;
 	public ContainerData[] tanks;

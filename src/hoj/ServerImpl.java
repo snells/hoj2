@@ -5,9 +5,11 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.registry.LocateRegistry;
 
-
+// starts panimo and redirects clients commands to panimo
 public class ServerImpl extends UnicastRemoteObject implements Server  {
 	
+
+	private static final long serialVersionUID = -3882241180752026669L;
 	Panimo panimo;
 	public ServerImpl() throws RemoteException {
 		panimo = new Panimo();

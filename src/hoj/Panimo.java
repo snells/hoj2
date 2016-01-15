@@ -1,9 +1,8 @@
 package hoj;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-
+// controls the pumps and containers 
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class Panimo {
 	
@@ -20,7 +19,7 @@ public class Panimo {
 	
 	
 	
-			
+		
 		public Panimo() {
 			silos = new Silo[4];
 			loader = new HardPump();
@@ -88,6 +87,17 @@ public class Panimo {
 		return s;
 	}
 	
+	public ArrayList<Tank> clientsTanks(String name) {
+		ArrayList<Tank> s = new ArrayList<Tank>();
+		if(!loggedIn(name))
+			return s;
+		for(int x = 0; x < tanks.length; x++) {
+			if(tanks[x].getUser().equals(name))
+				s.add(tanks[x]);
+		}
+		return s;
+	}
+	
 	
 	private ContainerData[] silosData() {
 		ContainerData[] d = new ContainerData[silos.length];
@@ -124,18 +134,6 @@ public class Panimo {
 				
 	}
 	
-	
-	
-	public ArrayList<Tank> clientsTanks(String name) {
-		ArrayList<Tank> s = new ArrayList<Tank>();
-		if(!loggedIn(name))
-			return s;
-		for(int x = 0; x < tanks.length; x++) {
-			if(tanks[x].getUser().equals(name))
-				s.add(tanks[x]);
-		}
-		return s;
-	}
 	
 
 	public boolean login(String name)  {

@@ -1,21 +1,25 @@
 package hoj;
 
+
+// base class that all pumps inherit
 public class TransferPump<T extends Container> extends Thread {
 	protected int speed; // stuff / second 
-	protected T contIn;
+	protected T contIn;  
 	protected T contOut;
 	protected volatile boolean inUse;
-	protected volatile boolean startFlag = false;
+	protected volatile boolean startFlag = false; // set true to start transfer
 	protected String user;
-	protected boolean end = false;
+	protected boolean end = false; // set true to end thread
 	protected boolean usingFiller;
 	protected boolean usingDrain;
 	
 	
+	// override to add extra tests to transfer 
 	protected boolean extraTest() {
 		return false;
 	}
 	
+
 	private boolean transfer(int count) {
 		if(extraTest())
 			return false;
@@ -35,7 +39,8 @@ public class TransferPump<T extends Container> extends Thread {
 	public boolean isFree() {
 		return !inUse;
 	}
-	
+		
+	// sets everything ready for transfer
 	public synchronized boolean prepare(String name, T in, T out, boolean filler, boolean drain) {
 		System.out.println("putki prepare");
 		if(inUse)
@@ -63,8 +68,8 @@ public class TransferPump<T extends Container> extends Thread {
 		return true;
 	}
 	
-	
-	private synchronized void work() {
+	// handles the whole transfer process 
+	private void work() {
 		System.out.println("putki working");
 	
 		while(transfer(speed)) {

@@ -2,10 +2,11 @@ package hoj;
 
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
-import java.rmi.Naming;
 
-
+// class that handles the calls to server
 public class Client extends UnicastRemoteObject implements ClientInter, Runnable  {
+
+	private static final long serialVersionUID = 8275277883834306092L;
 
 	public Client(MainWindow w, Server s, String n) throws RemoteException {
 		name = n;
@@ -16,12 +17,14 @@ public class Client extends UnicastRemoteObject implements ClientInter, Runnable
 		
 	}
 	
-	private String name;
-	private Server server;
+	private String name; // login name
+	private Server server; 
 	private MainWindow window;
-	private boolean end = false;
+	private boolean end = false; // set true to end thread
 	
 	public void run() {
+		
+		// gets the current state from the server
 		while(!end) {
 			try {
 				PanimoData d = server.getData();

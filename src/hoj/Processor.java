@@ -1,9 +1,12 @@
 package hoj;
 
+
 public class Processor extends Container implements Runnable {
-	private volatile boolean procesFlag;
-	private boolean end = false;
-	private volatile boolean startFlag = false;
+
+	private static final long serialVersionUID = 7144315623424420097L;
+	private volatile boolean procesFlag; // if process is ready
+	private boolean end = false; // set true to end thread
+	private volatile boolean startFlag = false; // set true to start processing
 
 	public Processor(int n) {
 		super(n, "", 2000);
@@ -63,57 +66,5 @@ public class Processor extends Container implements Runnable {
 		}
 	}
 }
-
-
-
-
-
-/*
-private volatile boolean procesFlag;
-private ProcesTimer timer;
-public Processor(int n) {
-	super(n, "", 2000);
-	procesState = "waiting";
-	procesFlag = false;
-	
-}
-
-public boolean procesReady() {
-	return procesFlag;
-}
-
-public boolean procesStart() {
-	System.out.println("PROCESSOR start");
-	if(procesFlag || inUse || roomLeft() > 0)
-		return false;
-	inUse = true;
-	procesState = "processing";
-	procesFlag = false;
-	System.out.println("PROCESSOR timer start");
-	timer = new ProcesTimer(this, 5);
-	timer.start();
-	return true;
-}
-
-public void procesFinish() {
-	procesState = "ready";
-	procesFlag = true;
-	inUse = false;
-
-}
-@Override
-public boolean free(String name) {
-	if(inUse)
-		return false;
-	if(!name.equals(user))
-		return false;
-	procesState = "waiting";
-	procesFlag = false;
-	reserved = false;
-	user = "";
-	inUse = false;
-	return true;
-}
-*/
 
 

@@ -1,5 +1,6 @@
 package hoj;
 
+// pump that transfers stuff to silos and from silos
 public class HardPump<T extends Container> extends TransferPump<T> {
 
 	private int transferCount;
@@ -7,6 +8,7 @@ public class HardPump<T extends Container> extends TransferPump<T> {
 		speed = 500;
 	}
 	
+	// client specified transfer count || speed
 	public void setCount(int n) {
 		if(n < 0) {
 			transferCount = Integer.MAX_VALUE;
@@ -22,6 +24,7 @@ public class HardPump<T extends Container> extends TransferPump<T> {
 
 	}
 	
+	// tests that we don't transfer more than we should
 	@Override
 	protected boolean extraTest() {
 		if(transferCount <= 0)

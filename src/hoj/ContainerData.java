@@ -2,7 +2,11 @@ package hoj;
 
 import java.io.Serializable;
 
+
+ // class that every container exists, client can parse the state from this 
 public class ContainerData implements Serializable {
+
+	private static final long serialVersionUID = -3443320593653569135L;
 	protected int index;
 	protected String type;
 	protected long stuff;
@@ -10,7 +14,7 @@ public class ContainerData implements Serializable {
 	protected boolean reserved;
 	protected String user;
 	protected boolean inUse;
-	protected boolean fill;
+	protected boolean fill; // used by silo loader
 	public String procesState;
 	
 	

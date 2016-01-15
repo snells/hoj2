@@ -2,7 +2,10 @@ package hoj;
 
 
 public class Container extends ContainerData {
-	
+
+	private static final long serialVersionUID = 3305322993505776743L;
+
+
 	public Container(int i, String t, long ms) {
 		index = i;
 		type = t;

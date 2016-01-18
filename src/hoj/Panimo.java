@@ -169,11 +169,12 @@ public class Panimo {
 			return silos[num].free(name);
 	}
 		
-		
+	
 		public boolean siloPumpStart(String name, int num, int count)  {
 			System.out.println("PANIMO silo pump start");
 			ArrayList<Silo> ct = clientsSilos(name);
 			ArrayList<Processor> cp = clientsProcessors(name);
+			// haetaan siilo josta voi ottaa
 			if(ct.size() < 1) 
 				return false;
 			Silo s = null;
@@ -181,20 +182,26 @@ public class Panimo {
 				if(t.getStuff() == 0 || t.inUse)
 					continue;
 				s = t;
+				break;
 			}
+			// haetaan vapaa keitin
 			Processor p = null;
 			for(Processor t : cp) {
-				if(t.procesReady() || t.inUse)
+				if(t.procesReady() || t.inUse || t.roomLeft() == 0)
 					continue;
 				p = t;
 				break;
 			}
+			
+			// jos ei vapaita ja sinulle varattuja niin lopetetaan
 			if(s == null || p == null)
 				return false;
 			
+			// onko pumppu vapaa?
 			HardPump sp = siloPumps[num];
 				if(sp.inUse)
 					return false;
+			
 			sp.setCount(count);
 			return sp.prepare(name, s, p, false, false); 
 			

@@ -4,9 +4,9 @@ package hoj;
 public class Processor extends Container implements Runnable {
 
 	private static final long serialVersionUID = 7144315623424420097L;
-	private volatile boolean procesFlag; // if process is ready
+	private boolean procesFlag; // if process is ready
 	private boolean end = false; // set true to end thread
-	private volatile boolean startFlag = false; // set true to start processing
+	private boolean startFlag = false; // set true to start processing
 
 	public Processor(int n) {
 		super(n, "", 2000);

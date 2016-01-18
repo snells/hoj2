@@ -8,7 +8,7 @@ public class HardPump<T extends Container> extends TransferPump<T> {
 		speed = 500;
 	}
 	
-	// client specified transfer count || speed
+	// client specified transfer count or everything
 	public void setCount(int n) {
 		if(n < 0) {
 			transferCount = Integer.MAX_VALUE;
@@ -24,7 +24,7 @@ public class HardPump<T extends Container> extends TransferPump<T> {
 
 	}
 	
-	// tests that we don't transfer more than we should
+	// tests that we don't transfer more than the user specified
 	@Override
 	protected boolean extraTest() {
 		if(transferCount <= 0)

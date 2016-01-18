@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Panimo {
 	
 		private Container filler = new Container(-1, "", Long.MAX_VALUE);
-		private Container drain = new Container(-2, "", Long.MAX_VALUE);
+		private Container[] drains; 
 		private volatile HardPump loader;
 		private Silo[] silos;
 		private HardPump[] siloPumps;
@@ -50,6 +50,9 @@ public class Panimo {
 				pumps[x].start();
 				bottlePumps[x].start();
 			}
+			drains = new Container[2];
+			drains[0] = new Container(-2, "", Long.MAX_VALUE);
+			drains[1] = new Container(-3, "", Long.MAX_VALUE);
 		}
 	
 	public LiquidPump getPump(int n) {
@@ -258,9 +261,9 @@ public class Panimo {
 			return tanks[num].free(name);
 	}
 	public boolean bottlePumpStart(String name, int num)  {
-		if(!drain.reserve(name))
+		if(!drains[num].reserve(name))
 			return false;		
-		drain.stuff = 0;
+		drains[num].stuff = 0;
 		ArrayList<Tank> ct = clientsTanks(name);
 		if(ct.size() < 1) 
 			return false;
@@ -273,6 +276,6 @@ public class Panimo {
 		}
 		if(in == null)
 			return false;
-		return bottlePumps[num].prepare(name, in, drain, false, true);
+		return bottlePumps[num].prepare(name, in, drains[num], false, true);
 	}
 }
